@@ -16,9 +16,7 @@ resource vnet1 'Microsoft.Network/virtualNetworks@2020-06-01' = {
         name: 'vnet1subnet1'
         properties: {
           addressPrefix: '10.10.0.0/24'
-          networkSecurityGroup: {
-            id: nsg1.id
-          }
+          
         }
       }
       {
