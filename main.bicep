@@ -35,7 +35,7 @@ module Vnet2 './vnet2.bicep' = {
   
 }
 
-//Deploy VM01 to Vnet1
+//Deploy VM01 to Vnet1, this is the module call to VM1 creation
 
 module VM1 './VM1.bicep' = {
   scope: rg
