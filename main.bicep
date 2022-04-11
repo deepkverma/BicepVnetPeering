@@ -1,5 +1,8 @@
 @description('Specifies the location for resources.')
 param RGlocation string
+param vm1pass string
+param vm1admin string
+param vm1name string
 
 
 // Below is the cmdlt to deploy from Azure CLI
@@ -32,14 +35,17 @@ module Vnet2 './vnet2.bicep' = {
   
 }
 
-//Deploying VM using module
- /*module VM 'Winvm.bicep' = {
+//Deploy VM01 to Vnet1
 
- name: 'VMdeployment'
- scope: rg
- params: {
-   VMadm: 
-   WindowsOS: 
-   VMPass: 
- }
-} */
+module VM1 './VM1.bicep' = {
+  scope: rg
+  name:  'VM1'
+  params: {
+    adminPassword: vm1pass
+    adminUsername: vm1admin
+    location: 'eastus'
+    virtualMachineName1: vm1name
+    subnetId: Vnet1.outputs.subnetId
+  }
+}
+
