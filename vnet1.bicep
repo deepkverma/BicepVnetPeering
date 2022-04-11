@@ -2,6 +2,8 @@
 // This will build VNET1.
 param vnet1location string
 var subnetName = 'main-subnet'
+
+
 resource vnet1 'Microsoft.Network/virtualNetworks@2020-06-01' = {
   name: 'vnet1'
   location: vnet1location
